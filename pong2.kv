@@ -12,66 +12,55 @@
     player2: player_right
 
     canvas:
-        # Средняя линия с сердечками
         Color:
             rgba: 1, 0.5, 0.75, 0.6
         Rectangle:
             pos: self.center_x - 2, 0
             size: 4, self.height
-        
-        # Сердечки на средней линии (каждые 100 пикселей)
-        Color:
-            rgba: 1, 0.4, 0.7, 0.8
-        # Рисуем сердечки через инструкции в коде, здесь просто декор
 
-    # Режим игры
     Label:
         font_size: 24
-        font_name: 'DejaVuSans'  # Linux-совместимый шрифт
-        color: 1, 0.3, 0.6, 1
+        font_name: 'GameFont'
+        color: 1, 0.2, 0.5, 1
         center_x: root.center_x
         top: root.top - 20
-        text: "💖 AI MODE 💖" if root.ai_mode else "🎮 2 PLAYERS 🎮"
+        text: "AI MODE" if root.ai_mode else "2 PLAYERS"
         bold: True
 
-    # Счет игрока 1 (розовый)
     Label:
         font_size: 70
-        font_name: 'DejaVuSans'
-        color: 1, 0.4, 0.75, 1
+        font_name: 'GameFont'
+        color: 1, 0.2, 0.5, 1
         bold: True
         center_x: root.width/4
         top: root.top - 40
         text: str(root.player1.score)
 
-    # Счет игрока 2 (малиновый)
     Label:
         font_size: 70
-        font_name: 'DejaVuSans'
-        color: 1, 0.2, 0.6, 1
+        font_name: 'GameFont'
+        color: 1, 0.15, 0.4, 1
         bold: True
         center_x: root.width*3/4
         top: root.top - 40
         text: str(root.player2.score)
 
-    # Заголовок
     Label:
-        font_size: 36
-        font_name: 'DejaVuSans'
-        color: 1, 0.5, 0.8, 1
+        font_size: 32
+        font_name: 'GameFont'
+        color: 1, 0.3, 0.6, 1
         center_x: root.center_x
         top: root.top + 5
-        text: "🎀 HELLO KITTY PONG 🎀"
+        text: "HELLO KITTY PONG"
         bold: True
 
-    # Подсказка
     Label:
-        font_size: 16
-        font_name: 'DejaVuSans'
-        color: 1, 0.4, 0.7, 0.9
+        font_size: 14
+        font_name: 'GameFont'
+        color: 1, 0.3, 0.6, 0.9
         center_x: root.center_x
         y: root.y + 10
-        text: "Левая ракетка = мышь | Двойной клик = смена режима"
+        text: "Mouse = left paddle | Double click = AI mode | Triple click = change BG"
 
     PongBall:
         id: pong_ball
@@ -79,10 +68,10 @@
 
     PongPaddle:
         id: player_left
-        x: root.x + 40
+        x: root.x + 50
         center_y: root.center_y
 
     PongPaddle:
         id: player_right
-        x: root.width - self.width - 40
+        x: root.width - self.width - 50
         center_y: root.center_y
